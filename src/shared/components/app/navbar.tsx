@@ -21,6 +21,8 @@ import {
   amAdmin,
   canCreateCommunity,
   donateLemmyUrl,
+  peerTubeUrl,
+  mastodonUrl,
   isBrowser,
   myAuth,
   notifyComment,
@@ -286,6 +288,24 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                   href={donateLemmyUrl}
                 >
                   <Icon icon="heart" classes="small" />
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  className="nav-link"
+                  title={"PeerTube"}
+                  href={peerTubeUrl}
+                >
+                  <Icon icon="peertube" />
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  className="nav-link"
+                  title={"Mastodon"}
+                  href={mastodonUrl}
+                >
+                  <Icon icon="mastodon" />
                 </a>
               </li>
             </ul>
