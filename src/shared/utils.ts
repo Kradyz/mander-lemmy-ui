@@ -59,9 +59,9 @@ export const donateLemmyUrl = `${joinLemmyUrl}/donate`;
 export const peerTubeUrl = "https://bolitoglossa.com";
 export const mastodonUrl = "https://plethodon.nl";
 export const docsUrl = `${joinLemmyUrl}/docs/en/index.html`;
-export const helpGuideUrl = `${joinLemmyUrl}/docs/en/about/guide.html`; // TODO find a way to redirect to the non-en folder
-export const markdownHelpUrl = `${helpGuideUrl}#using-markdown`;
-export const sortingHelpUrl = `${helpGuideUrl}#sorting`;
+export const helpGuideUrl = `${joinLemmyUrl}/docs/en/users/01-getting-started.html`; // TODO find a way to redirect to the non-en folder
+export const markdownHelpUrl = `${joinLemmyUrl}/docs/en/users/02-media.html`;
+export const sortingHelpUrl = `${helpGuideUrl}/docs/en/users/03-votes-and-ranking.html`;
 export const archiveTodayUrl = "https://archive.today";
 export const ghostArchiveUrl = "https://ghostarchive.org";
 export const webArchiveUrl = "https://web.archive.org";
@@ -175,10 +175,12 @@ export function hotRank(score: number, timeStr: string): number {
 }
 
 export function mdToHtml(text: string) {
+  // restore '>' character to fix quotes
   return { __html: md.render(text) };
 }
 
 export function mdToHtmlNoImages(text: string) {
+  // restore '>' character to fix quotes
   return { __html: mdNoImages.render(text) };
 }
 
@@ -1358,20 +1360,6 @@ export function postToCommentSortType(sort: SortType): CommentSortType {
   } else {
     return CommentSortType.Top;
   }
-}
-
-export function myFirstDiscussionLanguageId(
-  allLanguages: Language[],
-  siteLanguages: number[],
-  myUserInfo = UserService.Instance.myUserInfo
-): number | undefined {
-  return selectableLanguages(
-    allLanguages,
-    siteLanguages,
-    false,
-    false,
-    myUserInfo
-  ).at(0)?.id;
 }
 
 export function canCreateCommunity(
